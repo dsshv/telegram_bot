@@ -9,6 +9,7 @@
     "node-telegram-bot-api": "^0.61.0",
     "nodemon": "^3.0.1",
     "ts-node": "^10.9.1",
+    "ts-transformer-keys": "^0.4.4",
     "typescript": "^5.1.6"
   },
   "devDependencies": {

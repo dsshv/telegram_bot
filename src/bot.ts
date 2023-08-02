@@ -1,5 +1,5 @@
 require('dotenv').config();
-const TelegramApi = require('node-telegram-bot-api');
+import TelegramBot from "node-telegram-bot-api";
 
 const TOKEN = process.env.TOKEN || 'YOUR_TELEGRAM_BOT_TOKEN';
 
@@ -18,10 +18,11 @@ const TOKEN = process.env.TOKEN || 'YOUR_TELEGRAM_BOT_TOKEN';
 //     }
 // }
 
-const bot = new TelegramApi(TOKEN, { polling: true });
+const bot = new TelegramBot(TOKEN, { polling: true });
 
 bot.setMyCommands([
-    { command: '/info', description: 'qweasd' }
+    { command: '/info', description: 'asd' },
+    { command: '/help', description: 'qwe'}
 ])
 
 export default bot
