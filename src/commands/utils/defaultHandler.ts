@@ -1,18 +1,18 @@
-import TelegramBot from "node-telegram-bot-api";
+import TelegramBot, { ChatId } from "node-telegram-bot-api";
+import { HandlerOptions } from "../../ts/types";
 
 export default abstract class DefaultHandler {
     
-    protected readonly userId: string | null;
-    protected readonly chatId: string;
-    protected bot: TelegramBot;
-    protected readonly prototype: any;
+    protected readonly msg: TelegramBot.Message;
+    protected readonly chatId: ChatId;
+
+    protected readonly bot: TelegramBot;
     
-    protected abstract handle(): Promise<void>;
+    protected abstract run(): Promise<void>;
 
-    constructor(options: any) {
-        this.userId = options.userId ? options.userId : null;
-        this.chatId = options.chatId ? options.chatId : null;
-
+    constructor(options: HandlerOptions) {
+        this.msg = options.message;
+        this.chatId = this.msg.chat.id;
         this.bot = options.bot;
     }
 
